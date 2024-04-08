@@ -22,4 +22,6 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    // person class
 }
