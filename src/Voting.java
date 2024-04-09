@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Voting {
     private int type;
@@ -18,12 +19,17 @@ public class Voting {
     public void setQuestion(String question) {
         this.question = question;
     }
-
     public String getQuestion() {
         return question;
     }
-
-    public HashMap<String, HashSet<Vote>> getChoices() {
-        return choices;
+    public ArrayList<String> getChoices() {
+        ArrayList<String> availableChoices = new ArrayList<>();
+        for (String s : choices.keySet())
+            availableChoices.add(s);
+        return availableChoices;
     }
+    private void creatChoice(String choice){
+        this.choices.put(choice, null);
+    }
+
 }
