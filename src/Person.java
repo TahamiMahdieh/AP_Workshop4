@@ -22,6 +22,15 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+    @Override
+    public boolean equals(Object o){
+        if (o == this)
+            return true;
+        if (!(o instanceof Person))
+            return false;
+        Person p = (Person) o;
+        return (p.firstName.equals(firstName) && p.lastName.equals(lastName));
+    }
 
     // person class
 }

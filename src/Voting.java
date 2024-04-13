@@ -47,7 +47,6 @@ public class Voting {
         if (!voters.contains(voter)){
             voters.add(voter);
         }
-
     }
     public void vote(Person person){
         if (!isAnonymous){
@@ -85,7 +84,7 @@ public class Voting {
         for (String i : choices.keySet()){
             System.out.printf("Choice: %s\tVoters: ",i);
             for (Vote j : choices.get(i)){
-                System.out.println(j.getVoter().getFirstName() + " " + j.getVoter().getFirstName());
+                System.out.println(j.getVoter().getFirstName() + " " + j.getVoter().getLastName());
             }
         }
     }
