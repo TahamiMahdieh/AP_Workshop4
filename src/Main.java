@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Voting v1 = new Voting(0,"Canceling class" , false);
+        Voting v1 = new Voting(0,"Canceling class" , true);
         Voting v2 = new Voting(0, "Pizza for dinner?", false);
         Voting v3 = new Voting(0, "time of exam?", false);
         v1.createChoice("yes");
@@ -24,11 +24,19 @@ public class Main {
         Person voter2 = new Person("Omid", "Mohammadi");
         Person voter3 = new Person("Reza", "Kiani");
 
+        ArrayList<String> voter1Choices = new ArrayList<>();
+        ArrayList<String> voter2Choices = new ArrayList<>();
+        ArrayList<String> voter3Choices = new ArrayList<>();
+        voter1Choices.add("no");
+        voter2Choices.add("yes");
+        voter3Choices.add("08:00 - 10:00");
+        voter3Choices.add("15:00 - 17:00");
+
         newPoll.getVoting(0).vote(voter1);
         newPoll.getVoting(0).vote(voter3);
-        newPoll.getVoting(1).vote(voter2);
-        newPoll.getVoting(1).vote(voter1);
-        newPoll.getVoting(2).vote(voter2);
+        newPoll.getVoting(1).vote(voter2, voter2Choices);
+        newPoll.getVoting(1).vote(voter1, voter1Choices);
+        newPoll.getVoting(2).vote(voter2, voter3Choices);
 
         for (Voting v : newPoll.getVotingList()){
             v.printVoters();

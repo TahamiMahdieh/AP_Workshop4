@@ -11,7 +11,8 @@ public class Voting {
         this.type = type;
         this.question = question;
         this.isAnonymous = isAnonymous;
-        this.choices = new LinkedHashMap<>();
+        this.choices = new HashMap<>();
+        this.voters = new ArrayList<>();
     }
 
     public void setQuestion(String question) {
@@ -27,7 +28,7 @@ public class Voting {
         return availableChoices;
     }
     public void createChoice(String choice){
-        this.choices.put(choice, null);
+        this.choices.put(choice, new HashSet<Vote>());
     }
     public void vote(Person voter,ArrayList<String> voter_choices){
         if (isAnonymous){
@@ -82,9 +83,9 @@ public class Voting {
         if (isAnonymous){
             return;
         }
-        for (String i : choices.keySet()){
-            System.out.printf("Choice: %s\tVoters: ",i);
-            for (Vote j : choices.get(i)){
+        for (String i : choices.keySet()) {
+            System.out.printf("Choice: %s\tVoters: ", i);
+            for (Vote j : choices.get(i)) {
                 System.out.println(j.getVoter().getFirstName() + " " + j.getVoter().getLastName());
             }
         }
