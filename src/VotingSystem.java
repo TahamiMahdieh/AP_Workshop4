@@ -33,6 +33,7 @@ public class VotingSystem {
         System.out.println("Question : " + question);
         for (String s : choices){
             System.out.printf("%d-%s  ", choiceCounter, s );
+            choiceCounter ++;
         }
         System.out.println();
     }

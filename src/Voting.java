@@ -11,6 +11,7 @@ public class Voting {
         this.type = type;
         this.question = question;
         this.isAnonymous = isAnonymous;
+        this.choices = new LinkedHashMap<>();
     }
 
     public void setQuestion(String question) {
